@@ -10,24 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/latex@v2
-    - name: Build the pdf
-      run: |
-        pdflatex -shell-escape -interaction=nonstopmode -output-directory=build/pdf main.tex 
-    - name: Copy the pdf to the output directory
-      run: |
-        cp build/pdf/main.pdf $GITHUB_WORKSPACE/output/main.pdf
-    - name: Delete the build directory
-      run: |
-        rm -rf build
-    - name: Delete the pdf directory
-      run: |
-        rm -rf build/pdf
-    - name: Upload the pdf to the output directory
-      uses: actions/upload-artifact@v2
-      with:
-        name: main.pdf
-        path: $GITHUB_WORKSPACE/output/main.pdf
-        mime-type: application/pdf
-
+      uses: dante-ev/latex-action@latest
+      - name: Run latex
+        uses: dante-ev/latex-action@latest
+        with:
+          latex_command: pdflatex
+          latex_options:
+          - "-interaction=nonstopmode"
+          - "-output-directory=build"
+          - "-jobname=main"
+          - "main.tex"
