@@ -16,7 +16,7 @@ jobs:
           latex_command: pdflatex
           latex_options: main.tex
 
-      - uses: dante-ev/upload-artifact@v1
+      - uses: actions/upload-artifact@v1
         with:
           artifact_path: main.pdf
           artifact_name: main.pdf
