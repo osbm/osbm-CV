@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: dante-ev/latex-action@latest
-      - name: Run latex
+      - uses: actions/checkout@v2
       - uses: dante-ev/latex-action@latest
         with:
           latex_command: pdflatex
