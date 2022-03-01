@@ -11,10 +11,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: Is it working?
-      run: |
-        ls
-        echo test
+    - uses: actions/latex@v2
     - name: Build the pdf
       run: |
         pdflatex -shell-escape -interaction=nonstopmode -output-directory=build/pdf main.tex 
