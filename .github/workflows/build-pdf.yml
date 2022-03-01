@@ -15,3 +15,11 @@ jobs:
         with:
           latex_command: pdflatex
           latex_options: main.tex
+
+      - uses: dante-ev/upload-artifact@v1
+        with:
+          artifact_path: main.pdf
+          artifact_name: main.pdf
+          artifact_target_path: /
+          artifact_target_name: main.pdf
+          artifact_target_url:
