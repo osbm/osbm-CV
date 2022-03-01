@@ -18,8 +18,6 @@ jobs:
 
       - uses: actions/upload-artifact@v1
         with:
-          artifact_path: main.pdf
-          artifact_name: main.pdf
-          artifact_target_path: /
-          artifact_target_name: main.pdf
-          artifact_target_url:
+          name: main.pdf
+          path: main.pdf
+          
