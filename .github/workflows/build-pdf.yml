@@ -1,4 +1,4 @@
-#name: Build and upload the resume
+name: Build and upload the resume
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
     
 jobs:
   build-pdf:
-    name: Build the pdf using pdflatex
+#    name: Build the pdf using pdflatex
     runs-on: ubuntu-latest
     
     steps:
