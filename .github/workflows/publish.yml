@@ -3,11 +3,11 @@ name: Build the pdf
 on:
   push: 
     branches:
-    - master
+    - main
     
   pull_request:
     branches:
-    - master
+    - main
 
 jobs:
   build-pdf-job:
