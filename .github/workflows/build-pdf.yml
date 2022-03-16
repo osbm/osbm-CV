@@ -6,7 +6,7 @@ on:
     
 jobs:
   build-pdf:
-#    name: Build the pdf using pdflatex
+    name: Build the pdf using pdflatex
     runs-on: ubuntu-latest
     
     steps:
