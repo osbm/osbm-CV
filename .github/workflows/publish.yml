@@ -30,3 +30,10 @@ jobs:
           name: main
           path: main.pdf
 
+      - name: Deploy the pdf file
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./github_deploy
+          publish_branch: build
+          force_orphan: true
