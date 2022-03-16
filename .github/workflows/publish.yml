@@ -1,10 +1,14 @@
 name: Build the pdf
+
 on:
-  push:
+  push: 
     branches:
-    - main
+    - master
     
-    
+  pull_request:
+    branches:
+    - master
+
 jobs:
   build-pdf-job:
     name: Build the pdf using pdflatex
@@ -15,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Build the latex file
-      - uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@latest
         with:
           latex_command: pdflatex
           latex_options: main.tex
