@@ -1,4 +1,4 @@
-name: Build and upload the resume
+#name: Build and upload the resume
 on:
   push:
     branches:
