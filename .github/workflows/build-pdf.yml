@@ -1,3 +1,4 @@
+name: Build and upload the resume
 on:
   push:
     branches:
@@ -10,13 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
+      - name: Check this out
+        uses: actions/checkout@v2
+        
+      - name: Build the latex file
       - uses: dante-ev/latex-action@latest
         with:
           latex_command: pdflatex
           latex_options: main.tex
 
-      - uses: actions/upload-artifact@v1
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v1
         with:
           name: main.pdf
           path: main.pdf
