@@ -1,11 +1,8 @@
-FROM ubuntu:latest
-
-# to prevent tzdata from asking questions
-ENV DEBIAN_FRONTEND noninteractive 
-
-# 5 gb is too much
-RUN apt-get update && apt-get install -qy \
-    texlive-full
-
-WORKDIR /data
-VOLUME [ "/data" ]
+FROM qmcgaw/latexdevcontainer
+ARG USERNAME=vscode
+USER root
+RUN tlmgr update --self && \
+    tlmgr install latexindent latexmk && \
+    tlmgr install mathexam setspace adjustbox xkeyval collectbox enumitem lastpage && \
+    texhash
+USER ${USERNAME}
