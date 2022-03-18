@@ -24,4 +24,3 @@ jobs:
       with:
         push: true
         tags: osbm/osbm-cv:latest
-
