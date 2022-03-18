@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - Dockerfile
+      - .github/workflows/push_docker_image.yml
 
 jobs:
   publish_docker_image_job:
