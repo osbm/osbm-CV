@@ -1,13 +1,14 @@
-FROM qmcgaw/latexdevcontainer
 
-ARG USERNAME=vscode
+FROM texlive/texlive:latest
+FROM ubuntu:latest
 
-USER root
+RUN echo success 
+# to prevent tzdata from asking questions
+ENV DEBIAN_FRONTEND noninteractive 
 
-RUN tlmgr update --self && \
-    tlmgr install latexindent latexmk && \
-    tlmgr install mathexam setspace adjustbox xkeyval collectbox enumitem lastpage && \
-    texhash
+# 5 gb is too much
+RUN apt-get update && apt-get install -qy \
+    texlive-full
 
-# why we are changing users
-USER ${USERNAME}
+WORKDIR /data
+VOLUME [ "/data" ] 
