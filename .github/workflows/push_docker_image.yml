@@ -2,8 +2,8 @@ name: Publish docker image action
 
 on:
   push:
-    branches:
-      - 'main'
+    paths:
+      - Dockerfile
 
 jobs:
   publish_docker_image_job:
