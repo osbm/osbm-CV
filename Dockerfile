@@ -9,4 +9,5 @@ RUN tlmgr update --self && \
     tlmgr install mathexam setspace adjustbox xkeyval collectbox enumitem lastpage && \
     texhash
 
+# why we are changing users
 USER ${USERNAME}
