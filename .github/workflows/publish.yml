@@ -31,7 +31,7 @@ jobs:
           path: main.pdf
           
       - name: Move files to the publish directory
-        run: mv main.pdf github_deploy/main.pdf
+        run: mkdir github_deploy && mv main.pdf github_deploy/main.pdf
 
       - name: Deploy the pdf file
         uses: peaceiris/actions-gh-pages@v3
