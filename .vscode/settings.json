@@ -3,6 +3,6 @@
     "latex-workshop.latex.outDir": "./out",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.docker.image.latex": "osbm/osbm-cv:latest",
+    "latex-workshop.docker.image.latex": "osbm/osbm-cv",
     "latex-workshop.chktex.enabled": true,
 }
