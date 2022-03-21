@@ -16,7 +16,8 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Osman F. Bayram},
+    pdftitle=Resume of Osman F. Bayram,
+    pdfauthor=Osman F. Bayram,
     pdfpagemode=FullScreen,
 }
 \renewcommand{\familydefault}{\sfdefault}
