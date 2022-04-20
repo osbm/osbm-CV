@@ -30,7 +30,6 @@
 \definecolor{sidecolor}{HTML}{E7E7E7}
 
 
-
 % define length
 \newlength\margin
 \setlength\margin{1cm}
@@ -42,6 +41,13 @@
 \setlength\mainwidth{\paperwidth-4\margin-\sidewidth}
 
 \setlength{\parindent}{0pt} % Disable paragraph indentation
+
+\newlength\imagewidth
+\newlength\imagescale
+\pgfmathsetlength{\imagewidth}{5cm}
+\pgfmathsetlength{\imagescale}{\imagewidth/600}
+
+
 
 % set a4paper width minimal options
 \RequirePackage[
@@ -68,6 +74,9 @@
 {0em}
 {}
 
+% define commands
+
+\newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 
 
 
@@ -105,45 +114,6 @@
         \end{center}
     
 
-		%------------------------------------------------
-
-		{\Huge\color{mainblue}\cvname}
-
-		%------------------------------------------------
-
-		{\Large\color{black!80}\cvjobtitle}
-
-		%------------------------------------------------
-
-		\renewcommand{\arraystretch}{1.6}
-		\begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
-			{\textsc{\Large\icon{\Info}} & \cvdate\\}
-			{\textsc{\Large\icon{\Letter}} & \cvaddress\\}
-			{\textsc{\Large\icon{\Telefon}} & \cvnumberphone\\}
-			{\textsc{\Large\icon{\Mundus}} & \cvsite\\}
-			{\textsc{\large\icon{@}} & \href{mailto:\cvmail}{\cvmail}}
-		\end{tabular}
-
-		%------------------------------------------------
-		
-		\ifthenelse{\equal{\aboutme}{}}{}{
-			\profilesection{About me}
-			\begin{flushleft}
-				\aboutme
-			\end{flushleft}
-		}
-
-		%------------------------------------------------
-
-		\profilesection{Skills}
-
-		\skills
-		\skillstext
-		\scriptsize
-		(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
-			
-		%------------------------------------------------
-			
 	\end{textblock}
 }
 
