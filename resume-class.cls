@@ -9,6 +9,8 @@
 \usepackage{titlesec}    % to reformat sections
 \usepackage{fontspec}    % load external fonts
 \usepackage{textpos}     % to use textpos
+\usepackage{fancyhdr}    % headers and footers
+
 
 \usepackage[default,scale=0.9]{opensans} % open sans font throughout the document
 \usepackage[T1]{fontenc}
@@ -39,9 +41,16 @@
 \newlength\mainwidth
 \setlength\mainwidth{\paperwidth-4\margin-\sidewidth}
 
+\setlength{\parindent}{0pt} % Disable paragraph indentation
 
 % set a4paper width minimal options
-\usepackage[left=\sidewidth, top=1cm, bottom=1cm, right=1cm, nohead, nofoot]{geometry}
+\RequirePackage[
+    left=\sidewidth+3\margin, 
+    top=0.1cm,
+    right=1cm,
+    bottom=2cm,
+    nohead
+]{geometry}
 
 
 
@@ -60,15 +69,8 @@
 {}
 
 
-\pagestyle{empty} % to get rid of page number
-\setlength{\parindent}{0pt} % Disable paragraph indentation
 
-% define more lengths
-\newlength\sidewidth
-\setlength\sidewidth{0.3\paperwidth-\margin}
 
-\newlength\mainwidth
-\setlength\mainwidth{\paperwidth-4\margin-\sidewidth}
 
 \newcommand{\drawsidebar}{
     \begin{tikzpicture}[remember picture,overlay]
@@ -146,13 +148,9 @@
 }
 
 
+% set footer
 
+\pagestyle{fancy}                               % set the pagestyle to fancy to include headers and footers
+\fancyhf{}                                      % clear the header and footer
+\fancyfoot[C]{This document is written in \LaTeX. $\odot$ Last update \today}                         % add page number to the footer
 
-\newcommand{\footer}{
-    \normalsize
-    \begin{center}
-        This document is written in \LaTeX.
-        $\odot$ 
-        Last update \today
-    \end{center}
-}
