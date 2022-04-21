@@ -8,8 +8,8 @@
 \usepackage{tikz}
 \usepackage{titlesec}    % to reformat sections
 \usepackage{fontspec}    % load external fonts
-\usepackage{textpos}     % to use textpos
 \usepackage{fancyhdr}    % headers and footers
+\RequirePackage[absolute,overlay]{textpos}
 
 
 \usepackage[default,scale=0.9]{opensans} % open sans font throughout the document
@@ -104,7 +104,7 @@
 	\begin{textblock}{6}(0.5, 0.2)
 			
 		%------------------------------------------------
-		
+		\blindtext[1]
 		
         \begin{center}
             \begin{tikzpicture}[x=\imagescale,y=-\imagescale]
