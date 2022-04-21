@@ -6,7 +6,7 @@ RUN echo success
 # to prevent tzdata from asking questions
 ENV DEBIAN_FRONTEND noninteractive 
 
-# 5 gb is too much
+# 5 gb is too much for a latex installation
 RUN apt-get update && apt-get install -qy \
     texlive-full
 
