@@ -1,0 +1,42 @@
+name: Build and publish documents
+
+on:
+  push:
+    paths:
+      - resume.tex
+
+jobs:
+  build_publish_documents_job:
+    name: Build and publish documents job
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+      
+    - name: Pull docker image
+      uses: docker/pull-action@v1
+      with:
+        image: osbm/osbm-cv:latest
+        tag: latest
+
+    - name: Build 
+      run: |
+        docker run --rm -v $(pwd):/data osbm/osbm-cv xelatex resume.tex
+
+    - name: Publish the document
+      uses: actions/github-actions@v2
+      with:
+        token: ${GITHUB_TOKEN}
+        owner: ${GITHUB_REPOSITORY_OWNER}
+        repo: ${GITHUB_REPOSITORY}
+        event: push
+        ref: ${GITHUB_REF}
+        workflow: build_publish_documents
+        action: publish_documents
+        output:
+          path: /data/resume.pdf
+          name: resume.pdf
+          message: "Resume"
+          branch: build2
+          draft: false
+          overwrite: true
