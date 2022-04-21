@@ -15,11 +15,9 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Pull docker image
-        uses: docker/pull-action@v1
-        with:
-          image: osbm/osbm-cv:latest
-          tag: latest
-
+        runs: |
+          docker pull osbm/osbm-cv:latest
+          
       - name: Build 
         run: |
           docker run --rm -v $(pwd):/data osbm/osbm-cv xelatex resume.tex
