@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - resume.tex
+      - .github/workflows/build_publish_documents.yml
 
 jobs:
   build_publish_documents_job:
@@ -34,7 +35,7 @@ jobs:
         workflow: build_publish_documents
         action: publish_documents
         output:
-          path: /data/resume.pdf
+          path: resume.pdf
           name: resume.pdf
           message: "Resume"
           branch: build2
