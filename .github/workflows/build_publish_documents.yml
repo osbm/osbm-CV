@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Pull docker image
-        runs: |
+        run: |
           docker pull osbm/osbm-cv:latest
           
       - name: Build 
