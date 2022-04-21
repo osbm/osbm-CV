@@ -18,5 +18,5 @@ Build using docker
 
 ```
 docker build -t osbm-cv .
-docker run --rm -i -v $(pwd):/data osbm-cv pdflatex main.tex
+docker run --rm -i -v $(pwd):/data osbm-cv xelatex main.tex
 ```
