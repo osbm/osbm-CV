@@ -1,0 +1,15 @@
+name: Delete old build branches
+
+on:
+  delete
+
+jobs:
+  deleter-job:
+    name: Deleter job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Delete old branches
+        uses: osbm/delete-old-build-branches@latest
