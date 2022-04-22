@@ -13,7 +13,7 @@
 
 
 \usepackage[default,scale=0.9]{opensans} % open sans font throughout the document
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 
 
 \usetikzlibrary{calc,positioning,backgrounds,matrix}
@@ -123,4 +123,3 @@
 \pagestyle{fancy}                               % set the pagestyle to fancy to include headers and footers
 \fancyhf{}                                      % clear the header and footer
 \fancyfoot[C]{This document is written in \LaTeX. $\odot$ Last update \today}                         % add page number to the footer
-
