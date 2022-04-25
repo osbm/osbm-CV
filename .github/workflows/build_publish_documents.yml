@@ -20,7 +20,7 @@ jobs:
           docker run --rm -v $(pwd):/data osbm/osbm-cv xelatex resume.tex
 
       - name: Upload the artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: resume
           path: resume.pdf
