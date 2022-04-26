@@ -104,7 +104,6 @@
 	\begin{textblock}{5}(0.5, 0.2)
 			
 		%------------------------------------------------
-		\blindtext[1]
 		
         \begin{center}
             \begin{tikzpicture}[x=\imagescale,y=-\imagescale]
@@ -113,6 +112,7 @@
             \end{tikzpicture}
         \end{center}
     
+        \blindtext[1]
 
 	\end{textblock}
 }
