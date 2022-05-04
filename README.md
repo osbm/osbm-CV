@@ -2,7 +2,7 @@
 
 CV builder
 
-[![Build the pdf](https://github.com/osbm/osbm-CV/actions/workflows/publish.yml/badge.svg)](https://github.com/osbm/osbm-CV/actions/workflows/publish.yml)
+[![Build and publish documents](https://github.com/osbm/osbm-CV/actions/workflows/build_publish_documents.yml/badge.svg?branch=main)](https://github.com/osbm/osbm-CV/actions/workflows/build_publish_documents.yml)
 
 You can view the latest version of my resume [here](https://osbm.github.io/osbm-CV/resume.pdf)
 
