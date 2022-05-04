@@ -60,6 +60,10 @@
 
 \renewcommand{\headrulewidth}{0pt}
 
+\newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
+\newcommand{\cvjobtitle}[1]{\renewcommand{\cvjobtitle}{#1}}
+
+
 
 % reformat the \section
 \titleformat{\section}
@@ -113,7 +117,9 @@
             \end{tikzpicture}
         \end{center}
     
-        \blindtext[1]
+        \huge \cvname
+
+        \Large \cvjobtitle
 
 	\end{textblock}
 }
