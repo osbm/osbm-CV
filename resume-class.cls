@@ -58,6 +58,7 @@
     nohead
 ]{geometry}
 
+\renewcommand{\headrulewidth}{0pt}
 
 
 % reformat the \section
