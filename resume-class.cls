@@ -21,9 +21,9 @@
 
 
 %---------------- Show page layout. Don't use in a real document!
-\usepackage{showframe}
-\renewcommand\ShowFrameLinethickness{0.15pt}
-\renewcommand*\ShowFrameColor{\color{red}}
+% \usepackage{showframe}
+% \renewcommand\ShowFrameLinethickness{0.15pt}
+% \renewcommand*\ShowFrameColor{\color{red}}
 %---------------------------------------------------------------%
 
 % define colors
