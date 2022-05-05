@@ -10,6 +10,21 @@
 \usepackage{fontspec}    % load external fonts
 \usepackage{fancyhdr}    % headers and footers
 \RequirePackage[absolute,overlay]{textpos}
+\usepackage{fontawesome5}
+\RequirePackage{hyperref}
+
+
+\definecolor{urlcolor}{HTML}{0000EE}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=urlcolor,
+    pdftitle=Resume of Osman F. Bayram,
+    pdfauthor=Osman F. Bayram,
+    pdfpagemode=FullScreen,
+}
 
 
 \usepackage[default,scale=0.9]{opensans} % open sans font throughout the document
@@ -60,9 +75,6 @@
 
 \renewcommand{\headrulewidth}{0pt}
 
-\newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
-\newcommand{\cvjobtitle}[1]{\renewcommand{\cvjobtitle}{#1}}
-
 
 
 % reformat the \section
@@ -82,7 +94,15 @@
 % define commands
 
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
+\newcommand{\name}[1]{\renewcommand{\name}{#1}}
+\newcommand{\jobtitle}[1]{\renewcommand{\jobtitle}{#1}}
+\newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
 
+\newcommand{\website}[1]{\renewcommand{\website}{#1}}
+\newcommand{\email}[1]{\renewcommand{\email}{#1}}
+\newcommand{\github}[1]{\renewcommand{\github}{#1}}
+\newcommand{\kaggle}[1]{\renewcommand{\kaggle}{#1}}
+\newcommand{\linkedin}[1]{\renewcommand{\linkedin}{#1}}
 
 
 
@@ -116,10 +136,32 @@
                 \node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\profilepic}};
             \end{tikzpicture}
         \end{center}
-    
-        \huge \cvname
+        
+        \huge \name
 
-        \Large \cvjobtitle
+        \Large \jobtitle
+
+        % -------------------------- contact info --------------------------
+        
+        \normalsize
+
+        \vspace{0.5cm}
+
+        %\faIcon{envelope} \href{mailto:\email}{\email}
+        \begin{itemize}
+            \item[\faIcon{envelope}] \href{mailto:\email}{\underline{\email}}
+            \item[\faIcon{globe}] \href{https://\website}{\underline{\website}}
+            \item[\faIcon{github}] \href{https://github.com/\github}{\underline{github.com/\github}}
+            \item[\faIcon{kaggle}] \href{https://kaggle.com/\kaggle}{\underline{kaggle.com/\kaggle}}
+            \item[\faIcon{linkedin}] \href{https://linkedin.com/in/\linkedin}{\underline{linkedin.com/in/\linkedin}}
+        \end{itemize}
+        
+        %------------------------------------------------
+        \section{About me}
+        \aboutme
+
+        \section{skills}
+        
 
 	\end{textblock}
 }
