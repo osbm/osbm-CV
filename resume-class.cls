@@ -137,17 +137,15 @@
             \end{tikzpicture}
         \end{center}
         
-        \huge \name
+        \huge{\name}
 
-        \Large \jobtitle
+        \begin{center}
+            \Large{\jobtitle}
+        \end{center}
 
         % -------------------------- contact info --------------------------
         
-        \normalsize
-
-        \vspace{0.5cm}
-
-        %\faIcon{envelope} \href{mailto:\email}{\email}
+        \large
         \begin{itemize}
             \item[\faIcon{envelope}] \href{mailto:\email}{\underline{\email}}
             \item[\faIcon{globe}] \href{https://\website}{\underline{\website}}
@@ -161,7 +159,6 @@
         \aboutme
 
         \section{skills}
-        
 
 	\end{textblock}
 }
