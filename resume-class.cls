@@ -96,7 +96,7 @@
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 \newcommand{\name}[1]{\renewcommand{\name}{#1}}
 \newcommand{\jobtitle}[1]{\renewcommand{\jobtitle}{#1}}
-\newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
+%\newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
 
 \newcommand{\website}[1]{\renewcommand{\website}{#1}}
 \newcommand{\email}[1]{\renewcommand{\email}{#1}}
@@ -116,20 +116,20 @@
 
 
 %----------------------------------------------------------------------------------------
-%	 SIDEBAR LAYOUT
+%     SIDEBAR LAYOUT
 %----------------------------------------------------------------------------------------
 
 \newcommand{\makeprofile}{
-	\begin{tikzpicture}[remember picture,overlay]
-   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
-	\end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+           \node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+    \end{tikzpicture}
 
-	%------------------------------------------------
+    %------------------------------------------------
 
-	\begin{textblock}{5}(0.5, 0.2)
-			
-		%------------------------------------------------
-		
+    \begin{textblock}{5}(0.5, 0.2)
+            
+        %------------------------------------------------
+        
         \begin{center}
             \begin{tikzpicture}[x=\imagescale,y=-\imagescale]
                 \clip (600/2, 567/2) circle (567/2);
@@ -155,13 +155,49 @@
         \end{itemize}
         
         %------------------------------------------------
-        \section{About me}
-        \aboutme
+        %\section{About me}
+        %\aboutme
 
         \section{skills}
 
-	\end{textblock}
+    \end{textblock}
 }
+
+
+\setlength{\tabcolsep}{0pt}
+
+% New environment for the long list
+\newenvironment{twenty}{%
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+}{%
+    \end{tabular*}
+}
+
+\newcommand{\twentyitem}[4]{%
+    #1&\parbox[t]{0.83\textwidth}{%
+        \textbf{#2}%
+        \hfill%
+        {\footnotesize#3}\\%
+        #4\vspace{\parsep}%
+    }\\
+}
+
+
+\setlength{\tabcolsep}{0pt}
+
+% New environment for the small list
+\newenvironment{twentyshort}{%
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+}{%
+	\end{tabular*}
+}
+
+\newcommand{\twentyitemshort}[2]{%
+	#1&\parbox[t]{0.83\textwidth}{%
+		\textbf{#2}%
+	}\\
+}
+
 
 
 % set footer
