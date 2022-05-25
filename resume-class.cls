@@ -95,6 +95,7 @@
 
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 \newcommand{\name}[1]{\renewcommand{\name}{#1}}
+%\newcommand{\nameIPA}[1]{\renewcommand{\nameIPA}{#1}}
 \newcommand{\jobtitle}[1]{\renewcommand{\jobtitle}{#1}}
 %\newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
 
@@ -138,6 +139,7 @@
         \end{center}
         
         \huge{\name}
+
 
         \begin{center}
             \Large{\jobtitle}
