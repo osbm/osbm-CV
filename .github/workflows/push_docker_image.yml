@@ -5,6 +5,9 @@ on:
     paths:
       - Dockerfile
       - .github/workflows/push_docker_image.yml
+  schedule:
+  - cron: "42 21 * * 1" # At 21:42 on Monday.
+  
 
 jobs:
   publish_docker_image_job:
