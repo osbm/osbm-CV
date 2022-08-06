@@ -105,6 +105,7 @@
 \newcommand{\kaggle}[1]{\renewcommand{\kaggle}{#1}}
 \newcommand{\linkedin}[1]{\renewcommand{\linkedin}{#1}}
 
+\newcommand{\kaggledata}[1]{\renewcommand{\kaggledata}{#1}}
 
 
 \newcommand{\drawsidebar}{
@@ -160,9 +161,16 @@
         %\section{About me}
         %\aboutme
 
-        \section{skills}
+        %------------------------------------------------
+        
+        
+        \begin{center}
+            \Large\bfseries\lowercase{kaggle status}
+            
+            \includegraphics[width=1.2\sidewidth]{\kaggledata}
+        \end{center}
 
-    \end{textblock}
+    \end{textblock} 
 }
 
 
