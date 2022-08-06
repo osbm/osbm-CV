@@ -8,5 +8,13 @@
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "editor.formatOnSave": true,
     "latex-workshop.latexindent.path": "latexindent",
-
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "lastUsed",
+            "tools": [
+                "xelatex"
+            ]
+        },
+    ],
 }
