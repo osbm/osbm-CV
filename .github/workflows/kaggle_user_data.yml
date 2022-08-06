@@ -1,0 +1,52 @@
+name: Scrape kaggle data to generate a image
+
+on:
+  push:
+    paths:
+      - .github/kaggle_user_data_scraper.py
+      - .github/workflows/kaggle_user_data.yml
+  schedule:
+  - cron: "42 21 * * *" # At 21:42 everyday.
+
+jobs:
+  selenium_scrape:
+    name: Kaggle user data scraper job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Install requirements
+        run: |
+          pip install selenium webdriver_manager beautifulsoup4 pillow
+
+      - name: Download fonts
+        run: |
+          wget https://github.com/googlefonts/opensans/raw/main/fonts/ttf/OpenSans-Bold.ttf
+          wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip
+          unzip CascadiaCode-2111.01.zip
+          mv ttf/CascadiaCode.ttf .
+
+      - name: Run script
+        run: |
+          python .github/kaggle_user_data_scraper.py osmanf
+
+      - name: Artifact the image file
+        uses: actions/upload-artifact@v3
+        with:
+          name: kaggle_user_data
+          path: kaggle_user_data.png
+        
+      - name: Move image file into assets folder
+        run: |
+          mkdir -p assets
+          mv kaggle_user_data.png assets/kaggle_user_data.png
+
+      - name: Commit image to repository
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add assets/kaggle_user_data.png
+          git commit -m "Update kaggle user data image" || echo "Nothing to commit"
+          git push
