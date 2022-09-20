@@ -38,6 +38,7 @@ medal_colors = [
     "#8E5B3D",
 ]
 
+
 def get_medals(source):
     a = source.find_all("div", attrs={"class": "achievement-summary__medal"})
     medals = []
@@ -79,8 +80,7 @@ def get_rankings(source):
                 "current": result.split("Highest Rank")[0]
                 .split("of")[0]
                 .replace("Current Rank", ""),
-                "total": result.split("Highest Rank")[0]
-                .split("of")[1],
+                "total": result.split("Highest Rank")[0].split("of")[1],
             }
         )
     return rankings
@@ -109,7 +109,7 @@ def get_driver():
         "--disable-dev-shm-usage",
     ]
     chrome_service = Service(
-        ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+        ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install()
     )
     chrome_options = Options()
 
@@ -142,16 +142,21 @@ def build_image(data, backgroud_color="#E7E7E7"):
 
         text_w = int((size[0] - w) / 2)
         text_h = int(i * row_height + (row_height + h) / 8)
-        draw.text((text_w, text_h-10), category_text, font=opensans_font, fill=color)
+        draw.text((text_w, text_h - 10), category_text, font=opensans_font, fill=color)
 
         vertical_margin = 40
 
         # draw tier image
-        tier_image = Image.open(requests.get(tier_image_urls[tiers[i]], stream=True).raw)
+        tier_image = Image.open(
+            requests.get(tier_image_urls[tiers[i]], stream=True).raw
+        )
         tier_image_size = (100, 100)
         tier_image = tier_image.resize(tier_image_size)
-        image.paste(tier_image, (2*line_margin, text_h + vertical_margin), tier_image.convert("RGBA"))
-
+        image.paste(
+            tier_image,
+            (2 * line_margin, text_h + vertical_margin),
+            tier_image.convert("RGBA"),
+        )
 
         # draw ranking
 
@@ -160,26 +165,32 @@ def build_image(data, backgroud_color="#E7E7E7"):
             text_h + vertical_margin,
             size[0] - line_margin,
             text_h + vertical_margin + tier_image_size[1],
-
         )
         # draw rectangle at the remaining space
-        #draw.rectangle(remaining_space_coordinates)
+        # draw.rectangle(remaining_space_coordinates)
 
-        remaining_space_w = remaining_space_coordinates[2] - remaining_space_coordinates[0]
-        remaining_space_h = remaining_space_coordinates[3] - remaining_space_coordinates[1]
-        
+        remaining_space_w = (
+            remaining_space_coordinates[2] - remaining_space_coordinates[0]
+        )
+        remaining_space_h = (
+            remaining_space_coordinates[3] - remaining_space_coordinates[1]
+        )
 
         if rankings[i] == "Unranked":
             msg = rankings[i]
             w, h = opensans_font.getsize(msg)
-            text_w = int((remaining_space_w-w)/2 + remaining_space_coordinates[0])
-            text_h = int((remaining_space_h/2-h)/2 + remaining_space_coordinates[1])
+            text_w = int((remaining_space_w - w) / 2 + remaining_space_coordinates[0])
+            text_h = int(
+                (remaining_space_h / 2 - h) / 2 + remaining_space_coordinates[1]
+            )
             draw.text((text_w, text_h), msg, font=opensans_font, fill=color)
         else:
             msg = rankings[i]["current"] + " of " + rankings[i]["total"]
             w, h = opensans_font.getsize(msg)
-            text_w = int((remaining_space_w-w)/2 + remaining_space_coordinates[0])
-            text_h = int((remaining_space_h/2-h)/2 + remaining_space_coordinates[1])
+            text_w = int((remaining_space_w - w) / 2 + remaining_space_coordinates[0])
+            text_h = int(
+                (remaining_space_h / 2 - h) / 2 + remaining_space_coordinates[1]
+            )
             draw.text((text_w, text_h), msg, font=opensans_font, fill=color)
 
         # draw vertical line in the middle or remaining space
@@ -193,7 +204,7 @@ def build_image(data, backgroud_color="#E7E7E7"):
             fill="#A0A0A0",
             width=2,
         )
-        
+
         # draw medals
         medal_size = (20, 20)
         medal_margin = 10
@@ -203,7 +214,7 @@ def build_image(data, backgroud_color="#E7E7E7"):
         medal_w_count = int(remaining_space_w / medal_w)
         medal_h_count = int(remaining_space_h / medal_h)
 
-        current_x = remaining_space_coordinates[0] + 2*line_margin
+        current_x = remaining_space_coordinates[0] + 2 * line_margin
 
         for index, medal_number in enumerate(medals[i]):
             """
@@ -219,9 +230,11 @@ def build_image(data, backgroud_color="#E7E7E7"):
             """
             msg = "● " + str(medal_number)
             print(msg)
-            
+
             text_w = current_x
-            text_h = int(remaining_space_coordinates[1] + remaining_space_h / 2 + line_margin/2)
+            text_h = int(
+                remaining_space_coordinates[1] + remaining_space_h / 2 + line_margin / 2
+            )
             medal_font = ImageFont.truetype("CascadiaCode.ttf", 20)
             draw.text((text_w, text_h), msg, font=medal_font, fill=medal_colors[index])
             current_x += remaining_space_w / 3 - line_margin
