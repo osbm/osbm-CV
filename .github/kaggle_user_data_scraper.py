@@ -73,16 +73,21 @@ def get_rankings(source):
         if result == "Unranked":
             rankings.append(result)
             continue
+        elif "Highest Rank" in result:
 
-        rankings.append(
-            {
-                "best": result.split("Highest Rank")[1],
-                "current": result.split("Highest Rank")[0]
-                .split("of")[0]
-                .replace("Current Rank", ""),
-                "total": result.split("Highest Rank")[0].split("of")[1],
-            }
-        )
+            rankings.append(
+                {
+                    "best": result.split("Highest Rank")[1],
+                    "current": result.split("Highest Rank")[0]
+                    .split("of")[0]
+                    .replace("Current Rank", ""),
+                    "total": result.split("Highest Rank")[0].split("of")[1],
+                }
+            )
+        else:
+            print(rankings)
+            exit()
+
     return rankings
 
 
