@@ -70,8 +70,8 @@ def get_rankings(source):
     rankings = []
     print("a:", a)
     for i in a:
-        print(i)
         result = i.get_text(strip=True)
+        print(result)
         if result == "Unranked":
             rankings.append(result)
             continue
@@ -87,7 +87,6 @@ def get_rankings(source):
                 }
             )
         else:
-            print(a)
             print(rankings)
             exit()
 
