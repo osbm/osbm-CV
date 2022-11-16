@@ -68,21 +68,36 @@ def get_tiers(source):
 def get_rankings(source):
     a = source.find_all("div", attrs={"class": "achievement-summary__rank"})
     rankings = []
+    print("a:", a)
     for i in a:
         result = i.get_text(strip=True)
+        print(result)
         if result == "Unranked":
             rankings.append(result)
             continue
+        if "Highest Rank" in result:
 
-        rankings.append(
-            {
-                "best": result.split("Highest Rank")[1],
-                "current": result.split("Highest Rank")[0]
-                .split("of")[0]
-                .replace("Current Rank", ""),
-                "total": result.split("Highest Rank")[0].split("of")[1],
-            }
-        )
+            rankings.append(
+                {
+                    "best": result.split("Highest Rank")[1],
+                    "current": result.split("Highest Rank")[0]
+                    .split("of")[0]
+                    .replace("Current Rank", ""),
+                    "total": result.split("Highest Rank")[0].split("of")[1],
+                }
+            )
+        else:
+            # test is like Rank2632of243,960
+            current = result.split("of")[0].replace("Rank", "")
+            total = result.split("of")[1]
+            rankings.append(
+                {
+                    "best": current,
+                    "current": current,
+                    "total": total,
+                }
+            )
+
     return rankings
 
 
