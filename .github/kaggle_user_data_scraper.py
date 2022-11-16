@@ -68,7 +68,9 @@ def get_tiers(source):
 def get_rankings(source):
     a = source.find_all("div", attrs={"class": "achievement-summary__rank"})
     rankings = []
+    print("a:", a)
     for i in a:
+        print(i)
         result = i.get_text(strip=True)
         if result == "Unranked":
             rankings.append(result)
