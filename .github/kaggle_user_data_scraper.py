@@ -87,8 +87,16 @@ def get_rankings(source):
                 }
             )
         else:
-            print(rankings)
-            exit()
+            # test is like Rank2632of243,960
+            current = result.split("of")[0].replace("Rank", "")
+            total = result.split("of")[1]
+            rankings.append(
+                {
+                    "best": current,
+                    "current": current,
+                    "total": total,
+                }
+            )
 
     return rankings
 
