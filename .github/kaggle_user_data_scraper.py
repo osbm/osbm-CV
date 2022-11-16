@@ -21,9 +21,9 @@ tier_image_urls = {
 tier_colors = {
     "grandmaster": "#DDAA17",
     "master": "#F76629",
-    "experts": "#96508E",
+    "expert": "#96508E",
     "contributor": "#20BEFF",
-    "novices": "#4FCB93",
+    "novice": "#4FCB93",
 }
 
 medal_image_urls = [
