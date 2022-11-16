@@ -73,7 +73,7 @@ def get_rankings(source):
         if result == "Unranked":
             rankings.append(result)
             continue
-        elif "Highest Rank" in result:
+        if "Highest Rank" in result:
 
             rankings.append(
                 {
@@ -85,6 +85,7 @@ def get_rankings(source):
                 }
             )
         else:
+            print(a)
             print(rankings)
             exit()
 
