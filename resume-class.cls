@@ -101,6 +101,7 @@
 
 \newcommand{\website}[1]{\renewcommand{\website}{#1}}
 \newcommand{\email}[1]{\renewcommand{\email}{#1}}
+\newcommand{\phone}[1]{\renewcommand{\phone}{#1}}
 \newcommand{\github}[1]{\renewcommand{\github}{#1}}
 \newcommand{\kaggle}[1]{\renewcommand{\kaggle}{#1}}
 \newcommand{\linkedin}[1]{\renewcommand{\linkedin}{#1}}
@@ -151,6 +152,7 @@
         \large
         \begin{itemize}
             \item[\faIcon{envelope}] \href{mailto:\email}{\underline{\email}}
+            \item[\faIcon{phone}] \phone
             \item[\faIcon{globe}] \href{https://\website}{\underline{\website}}
             \item[\faIcon{github}] \href{https://github.com/\github}{\underline{github.com/\github}}
             \item[\faIcon{kaggle}] \href{https://kaggle.com/\kaggle}{\underline{kaggle.com/\kaggle}}
