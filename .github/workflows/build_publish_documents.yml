@@ -15,11 +15,11 @@ jobs:
 
       - name: Pull docker image
         run: |
-          docker pull texlive/texlive:latest
+          docker pull osbm/osbm-cv:latest
 
       - name: Build
         run: |
-          docker run --rm -v $(pwd):/data texlive/texlive xelatex resume.tex
+          docker run --rm -v $(pwd):/data osbm/osbm-cv xelatex resume.tex
 
       - name: Upload the artifact
         uses: actions/upload-artifact@v3
