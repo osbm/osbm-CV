@@ -5,8 +5,8 @@ on:
     paths:
       - .github/kaggle_user_data_scraper.py
       - .github/workflows/kaggle_user_data.yml
-  schedule:
-  - cron: "42 21 * * *" # At 21:42 everyday.
+  # schedule:
+  # - cron: "42 21 * * *" # At 21:42 everyday.
 
 jobs:
   selenium_scrape:
