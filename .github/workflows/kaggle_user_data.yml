@@ -33,7 +33,7 @@ jobs:
           python .github/kaggle_user_data_scraper.py osmanf
 
       - name: Artifact the image file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: kaggle_user_data
           path: kaggle_user_data.png
