@@ -31,7 +31,7 @@ jobs:
         run: mkdir github_deploy && mv resume.pdf github_deploy/resume.pdf
 
       - name: Deploy the pdf file
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./github_deploy
